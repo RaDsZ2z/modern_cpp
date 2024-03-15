@@ -63,4 +63,4 @@ int main()
     cout << _is_void_v<int> << '\n';
 }
 ```
-(come from mq-b)
+参考：mq-b
