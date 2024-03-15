@@ -53,4 +53,4 @@ int main()
 }
 ```
 
-(come from mq-b)
+参考：mq-b
