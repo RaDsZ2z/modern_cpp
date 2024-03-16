@@ -61,7 +61,51 @@ int main()
 }
 ```
 
-## 3.2.remove_extent
+## 3.2.is_function
+```cpp
+template< class T >
+struct is_function;
+```
+检查T是否函数类
+
+std::function、lambda、重载operator()的类和指向函数的指针不是函数类型
+```cpp
+#include <iostream>    // std::cout
+#include <type_traits> // std::is_same
+#include <thread>
+void f(int x)
+{
+    std::cout << "x:" << x << '\n';
+}
+struct X
+{
+    void operator()()
+    {
+    }
+};
+int main()
+{
+    using T1 = decltype(f);              // 函数类型
+    using T2 = std::function<void(int)>; // std::function
+    std::function<void(int)> func = f;
+    using T3 = decltype(func); // std::cuntion
+    auto ff = [](int) -> void {
+    };
+    using T4 = decltype(ff);  // lambda
+    using T5 = X;             // 重载()的类
+    using T6 = void (*)(int); // 函数指针
+    std::cout << std::boolalpha;
+    std::cout << std::is_same_v<T2, T3> << '\n'; // true  T2 == T3
+    std::cout << "-----\n";
+    std::cout << std::is_function_v<T1> << '\n'; // true
+    std::cout << std::is_function_v<T2> << '\n'; // false
+    std::cout << std::is_function_v<T3> << '\n'; // false
+    std::cout << std::is_function_v<T4> << '\n'; // false
+    std::cout << std::is_function_v<T5> << '\n'; // false
+    std::cout << std::is_function_v<T6> << '\n'; // false
+}
+```
+## 3.3.remove_extent
 单独写了一个.md文件
 
 # 4.数组引用与函数引用
