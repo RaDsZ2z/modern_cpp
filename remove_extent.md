@@ -1,4 +1,4 @@
-[cppreference](https://zh.cppreference.com/w/cpp/types/remove_extent)
+
 
 # 1.作用与用法
 
@@ -118,3 +118,4 @@ int main()
     //则 U 与 U1 都为 int 可自行测试
 }
 ```
+参考 [cppreference](https://zh.cppreference.com/w/cpp/types/remove_extent)
