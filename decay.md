@@ -98,6 +98,39 @@ int main()
     std::cout << std::is_same_v<std::add_pointer_t<decltype(f)>, T> << '\n';
 }
 ```
+关于函数指针我又发现了一些 ~~有趣~~ 抽象的东西，放一段代码不解释了
+```cpp
+#include <iostream>    // std::cout
+#include <type_traits> // std::is_same
+#include <thread>
+#include <stdio.h>
+void f(int x) { std::cout << "hello world!\n"; }
+
+void f1(void (*f)(int), int y)
+{
+    f(y);
+}
+
+void f2(int x)
+{
+    std::cout << "x:" << x;
+}
+int main()
+{
+    void (*p)(int) = f;
+    std::thread t1{*****p, 3};
+    t1.join();
+
+    std::thread t2{*****f, 3};
+    t2.join();
+
+    std::thread t3{********************************f, 3};
+    t3.join();
+
+    f1(********************f2, 3);
+}
+
+```
 ## 4.3.
 那有没有数组指针这种东西呢？当然也是有的
 ```cpp
