@@ -82,7 +82,7 @@ int main()
     std::cout << std::is_same_v<decltype(f), std::remove_reference_t<T3>>;
 }
 ```
-## 4.2.
+## 4.2.函数指针
 既然聊到了函数引用，你可能也联想到了函数指针，我们来写一下
 ```cpp
 #include <iostream>    // std::cout
@@ -131,7 +131,7 @@ int main()
 }
 
 ```
-## 4.3.
+## 4.3.数组指针
 那有没有数组指针这种东西呢？当然也是有的
 ```cpp
 #include <iostream>    // std::cout
