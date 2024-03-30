@@ -136,7 +136,7 @@ void f(int, int)
 }
 int main()
 {
-    using T = void (*)(int, int); // void (int,int)函数类型 的引用
+    using T = void (*)(int, int); // void (int,int)函数类型 的指针
     std::cout << std::is_same_v<decltype(f), std::remove_pointer_t<T>> << '\n';
 
     std::cout << std::is_same_v<std::add_pointer_t<decltype(f)>, T> << '\n';
@@ -182,9 +182,9 @@ int main()
 #include <type_traits> // std::is_same
 int main()
 {
-    using T1 = int(*)[];
-    using T2 = int[];
-    using T3 = T2 *;
+    using T1 = int(*)[]; //数组指针
+    using T2 = int[];    //数组
+    using T3 = T2 *;     //数组指针
     std::cout << std::boolalpha;
     std::cout << std::is_same_v<T1, T3> << '\n';                     // true
     std::cout << std::is_same_v<T1, std::add_pointer_t<T2>> << '\n'; // true
