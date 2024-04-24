@@ -23,4 +23,24 @@ mutex.try_lock()
 
 # 5.std::unique_lock()
 拥有lock unlock 成员函数
+对构造函数使用参数 std::adopt_lock 和 std::defer_lock
+```cpp
+//1.
+std::mutex m;
+int main() {
+    m.lock();
+    std::unique_lock<std::mutex>lock{ m,std::adopt_lock };
+}
+//2.
+std::mutex m;
+int main() {
+    std::unique_lock<std::mutex>lock{ m,std::adopt_lock };
+    lock.lock();
+}
+```
+使用 std::defer_lock 构造函数不上锁，要求构造之后上锁
+
+使用 std::adopt_lock 构造函数不上锁，要求在构造之前互斥量上锁
+
+默认构造会上锁，要求构造函数之前和构造函数之后都不能再次上锁
 # 6.std::shared_lock()
