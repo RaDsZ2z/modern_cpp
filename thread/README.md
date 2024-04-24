@@ -12,12 +12,14 @@ mutex.unlock()
 mutex.try_lock()
 ```
 
-# 2.std::lock()
+# 2.std::lock_guard()
+
+# 3.std::lock()
 “它能一次性锁住多个互斥量，并且没有死锁风险”
-# 3.std::lock_guard()
+
 
 # 4.std::scoped_lock()
-
+“它通常比裸调用std::lock更好”
 # 5.std::shared_lock()
 
 # 6.std::unique_lock()
