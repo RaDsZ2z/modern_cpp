@@ -20,6 +20,7 @@ mutex.try_lock()
 
 # 4.std::scoped_lock()
 “它通常比裸调用std::lock更好”
-# 5.std::shared_lock()
 
-# 6.std::unique_lock()
+# 5.std::unique_lock()
+
+# 6.std::shared_lock()
