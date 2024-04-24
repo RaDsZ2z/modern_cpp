@@ -22,5 +22,5 @@ mutex.try_lock()
 “它通常比裸调用std::lock更好”
 
 # 5.std::unique_lock()
-
+拥有lock unlock 成员函数
 # 6.std::shared_lock()
