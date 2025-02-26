@@ -1,0 +1,1 @@
+记录一些常见问题对应[cppreference](https://en.cppreference.com/w/)上的解释
