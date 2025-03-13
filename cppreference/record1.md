@@ -17,4 +17,4 @@ int main()
 ```
 Q:上面代码的输出顺序是什么？  
 A:任意顺序。  
-[求值顺序](https://zh.cppreference.com/w/cpp/language/eval_order)
+[参考：求值顺序](https://zh.cppreference.com/w/cpp/language/eval_order)
